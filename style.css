@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.calendar {
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.month-year {
+  margin-top: 0;
+  text-align: center;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.weekdays div {
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  font-weight: bold;
+  background-color: #e9eef7;
+  border-radius: 6px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.day-cell {
+  min-height: 70px;
+  padding: 0.5rem;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.day-cell--empty {
+  background-color: #f0f0f0;
+  border-style: dashed;
+}
