@@ -1,0 +1,13 @@
+{
+  "name": "piscine-sprint-2-project-days-calendar",
+  "version": "1.0.0",
+  "description": "A dynamic calendar application that calculates and displays commemorative days based on annual patterns.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

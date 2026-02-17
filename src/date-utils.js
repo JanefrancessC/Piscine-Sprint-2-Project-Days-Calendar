@@ -32,19 +32,50 @@ const days = [
 export const calculateCommemorativeDate = function (year, dayObject) {
   const { monthName, dayName, occurrence } = dayObject;
 
-//   Get index of month and day
+  //   Get index of month and day
   const monthIndex = months.indexOf(monthName);
-  const weekdayIndex = days.indexOf(dayName);
+  const targetWeekdayIndex = days.indexOf(dayName);
 
-  if (monthIndex === -1 || weekdayIndex === -1) {
+  if (monthIndex === -1 || targetWeekdayIndex === -1) {
     throw new Error("Invalid month or day!");
   }
 
-//   Map occurrences to numbers
+  //   Map occurrences to numbers
   const occurrenceMapped = {
-    "first": 1,
-    "second": 2,
-    "third": 3,
-    "fourth": 4
+    first: 1,
+    second: 2,
+    third: 3,
+    fourth: 4,
+  };
+
+  if (occurrence === "last") {
+    const dateObj = new Date(year, monthIndex + 1, 0);
+
+    while (dateObj.getDay() !== targetWeekdayIndex) {
+      dateObj.setDate(dateObj.getDate() - 1);
+    }
+    return dateObj;
+  } else {
+    const targetNth = occurrenceMapped[occurrence];
+
+    if (!targetNth) {
+      return null;
+    }
+
+    let foundCount = 0;
+
+    for (let dd = 1; dd <= 31; dd++) {
+      const dateObj = new Date(year, monthIndex, dd);
+
+      if (dateObj.getMonth() !== monthIndex) break;
+
+      if (dateObj.getDay() === targetWeekdayIndex) {
+        foundCount++;
+        if (foundCount === targetNth) {
+          return dateObj;
+        }
+      }
+    }
   }
-}
+  return null;
+};
