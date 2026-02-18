@@ -30,6 +30,13 @@ const days = [
 ];
 
 export const calculateCommemorativeDate = function (year, dayObject) {
+  if (!Number.isInteger(year) || year < 0) {
+    throw new Error(`Year must be a positive number`);
+  }
+
+  if (!dayObject || typeof dayObject !== "object") {
+    throw new Error(`Invalid dayObject provided`);
+  }
   const { monthName, dayName, occurrence } = dayObject;
 
   //   Get index of month and day
@@ -55,12 +62,8 @@ export const calculateCommemorativeDate = function (year, dayObject) {
       dateObj.setDate(dateObj.getDate() - 1);
     }
     return dateObj;
-  } else {
+  } else if (occurrenceMapped[occurrence]) {
     const targetNth = occurrenceMapped[occurrence];
-
-    if (!targetNth) {
-      return null;
-    }
 
     let foundCount = 0;
 
@@ -76,6 +79,10 @@ export const calculateCommemorativeDate = function (year, dayObject) {
         }
       }
     }
+    return null;
+  } else {
+    throw new Error(
+      `Unknown occurrence type! Expected first, second, third, fourth, or last occurrence.`,
+    );
   }
-  return null;
 };
