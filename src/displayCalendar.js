@@ -1,3 +1,5 @@
+import { renderCommemorativeDaysForMonth } from "./commemorativeDays.js";
+
 const monthYearElement = document.getElementById("month-year");
 const calendarGridElement = document.getElementById("calendar-grid");
 
@@ -7,7 +9,7 @@ function getDaysInMonth(year, month) {
 }
 
 // This function draws one month in the calendar grid.
-export function renderMonth(year, month) {
+export async function renderMonth(year, month) {
   calendarGridElement.innerHTML = "";
 
   const firstDayOfMonth = new Date(year, month, 1);
@@ -32,8 +34,10 @@ export function renderMonth(year, month) {
     const dayCell = document.createElement("div");
     dayCell.className = "day-cell";
     dayCell.textContent = String(day);
+    dayCell.dataset.day = day;
     calendarGridElement.appendChild(dayCell);
   }
+    await renderCommemorativeDaysForMonth(year, month);
 }
 
 // This function shows the current month when page loads.
