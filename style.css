@@ -30,9 +30,21 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+#controls {
+  display: flex;
+  gap: 15px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .month-year {
   margin-top: 0;
   text-align: center;
+  display: none;
 }
 
 .weekdays {
