@@ -30,9 +30,24 @@ main {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+#controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .month-year {
   margin: 0;
   text-align: center;
+  /* display: none; */
 }
 
 .calendar-controls {

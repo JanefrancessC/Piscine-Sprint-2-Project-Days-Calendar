@@ -1,4 +1,16 @@
 import { renderMonth } from "./displayCalendar.js";
+import { updateSelectors } from "./monthYearSelect.js";
+
+// Keep one date object as the calendar state.
+const shownDate = new Date();
+shownDate.setDate(1);
+
+// Update the internal state of the dropdowns
+
+export function syncCalendarState(year, month) {
+  shownDate.setFullYear(Number(year));
+  shownDate.setMonth(Number(month));
+}
 
 // This function connects buttons to month navigation.
 export function initializeCalendarNavigation() {
@@ -9,12 +21,11 @@ export function initializeCalendarNavigation() {
     return;
   }
 
-  // Keep one date object as the calendar state.
-  const shownDate = new Date();
-  shownDate.setDate(1);
-
   function showCalendarFromState() {
-    renderMonth(shownDate.getFullYear(), shownDate.getMonth());
+    const year = shownDate.getFullYear();
+    const month = shownDate.getMonth();
+    renderMonth(year, month);
+    updateSelectors(year, month);
   }
 
   previousMonthButton.addEventListener("click", () => {
