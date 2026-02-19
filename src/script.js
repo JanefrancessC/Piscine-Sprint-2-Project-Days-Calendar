@@ -1,4 +1,3 @@
-import { renderCurrentMonth } from "./displayCalendar.js";
+import { initializeCalendarNavigation } from "./navigation.js";
 
-// Start the first calendar view.
-renderCurrentMonth();
+initializeCalendarNavigation();
