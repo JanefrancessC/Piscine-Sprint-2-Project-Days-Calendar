@@ -32,7 +32,10 @@ main {
 
 #controls {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1rem;
 }
 
 .control-group {
@@ -44,7 +47,7 @@ main {
 .month-year {
   margin-top: 0;
   text-align: center;
-  display: none;
+  /* display: none; */
 }
 
 .weekdays {
