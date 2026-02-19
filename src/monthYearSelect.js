@@ -41,6 +41,8 @@ const populateYears = () => {
 };
 
 function handleJump() {
+  if (monthSelect === "" || yearSelect === "") return;
+
   const selectedMonth = Number(monthSelect.value);
   const selectedYear = Number(yearSelect.value);
 
