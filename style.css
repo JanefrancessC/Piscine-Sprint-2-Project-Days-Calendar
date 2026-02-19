@@ -47,7 +47,7 @@ main {
 .month-year {
   margin: 0;
   text-align: center;
-  display: none;
+  /* display: none; */
 }
 
 .calendar-controls {

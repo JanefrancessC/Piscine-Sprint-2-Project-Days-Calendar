@@ -1,4 +1,5 @@
 import { renderMonth } from "./displayCalendar.js";
+import { syncCalendarState } from "./navigation.js";
 
 const monthSelect = document.getElementById("month-select");
 const yearSelect = document.getElementById("year-select");
@@ -47,6 +48,7 @@ function handleJump() {
   const selectedYear = Number(yearSelect.value);
 
   renderMonth(selectedYear, selectedMonth);
+  syncCalendarState(selectedYear, selectedMonth);
 }
 
 export const updateSelectors = function (year, month) {
