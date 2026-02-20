@@ -56,9 +56,6 @@ export const updateSelectors = function (year, month) {
   monthSelect.value = month;
 };
 
-/**
- *
- */
 export const initMonthYearSelect = function () {
   populateMonths();
   populateYears();
