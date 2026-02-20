@@ -38,14 +38,18 @@ function buildEventLines(dayItem, year, dtstamp) {
   const eventDate = calculateCommemorativeDate(year, dayItem);
 
   if (!(eventDate instanceof Date) || Number.isNaN(eventDate.getTime())) {
-    throw new Error(`Could not calculate a date for "${dayItem.name}" in ${year}.`);
+    throw new Error(
+      `Could not calculate a date for "${dayItem.name}" in ${year}.`,
+    );
   }
 
   const nextDay = new Date(eventDate);
   nextDay.setDate(nextDay.getDate() + 1);
 
   const summary = escapeIcsText(dayItem.name);
-  const url = dayItem.descriptionURL ? escapeIcsText(dayItem.descriptionURL) : "";
+  const url = dayItem.descriptionURL
+    ? escapeIcsText(dayItem.descriptionURL)
+    : "";
 
   const lines = [
     "BEGIN:VEVENT",

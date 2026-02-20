@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { generateIcalFile } from "./src/icalGenerator.js";
 
 async function run() {
-  const daysJsonPath = resolve("days.json");
+  const daysJsonPath = resolve("./data/days.json");
   const outputPath = resolve("days.ics");
 
   const daysJson = await readFile(daysJsonPath, "utf8");
