@@ -37,7 +37,7 @@ export async function renderMonth(year, month) {
     dayCell.dataset.day = day;
     calendarGridElement.appendChild(dayCell);
   }
-    await renderCommemorativeDaysForMonth(year, month);
+  await renderCommemorativeDaysForMonth(year, month);
 }
 
 // This function shows the current month when page loads.
